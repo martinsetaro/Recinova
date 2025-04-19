@@ -39,11 +39,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
   customText: {
     fontFamily: 'mi-fuente',  // Aquí aplicas la fuente cargada
-    
   },
   title:{
     fontSize:45,
