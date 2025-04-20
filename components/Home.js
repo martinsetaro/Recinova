@@ -2,7 +2,7 @@ import React , {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View , Image ,TouchableOpacity , ImageBackground , Dimensions } from 'react-native';
 import { loadFonts } from '../components/fonts';  // Importas la función desde el archivo fonts.js
-import bkgPrincipal from '../assets/img/bkgPrincipal.png';
+import bkgPrincipal from '../assets/img/Recinovabkg.png';
 
 const { width, height } = Dimensions.get('window'); 
 
@@ -25,9 +25,7 @@ export default function Home({navigation}) {
   return (
     <ImageBackground source={bkgPrincipal}style={styles.background}>
             <View style={styles.container}>
-                <Text style={styles.textoTitulo}>
-                  Recinova
-                </Text>
+                
                 <Text style={styles.subTitulo}>
                 Cada objeto merece una segunda oportunidad.
                 </Text>
@@ -35,7 +33,7 @@ export default function Home({navigation}) {
                  onPress={() => navigation.navigate('Second')}
                  style={styles.buttonStart}>
                   <Text style={styles.text}>
-                   Ingresar
+                   entrar
                   </Text>
                 </TouchableOpacity>
             </View>
@@ -60,17 +58,18 @@ const styles = StyleSheet.create({
     fontFamily:'mi-fuente',
     marginBottom:5,
     textTransform:'uppercase',
-    color:'#fff',
+    color:'#9d5f5f',
     fontWeight:900,
   },
   buttonStart:{
-    backgroundColor:'#8e5656',
     width:160,
     height:80,
     alignItems:'center',
     borderRadius:15,
     justifyContent:'center',
     marginTop:35,
+    borderColor:'#9d5f5f',
+    borderWidth:2,
   },
   textoTitulo:{
    fontFamily:'mi-fuente',
@@ -81,6 +80,8 @@ const styles = StyleSheet.create({
     fontFamily:'mi-fuente',
     fontSize:18,
     textAlign:'center',
+    marginTop:80,
+    color:'#9d5f5f',
   }, 
 
 });

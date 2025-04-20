@@ -1,5 +1,5 @@
 import { View ,Text , StyleSheet , Image , ScrollView , TouchableOpacity} from 'react-native';
-import Imagen1 from '../assets/img/principal.jpg'
+import Imagen1 from '../assets/img/iconos.png'
 import TestimoniosSlider from './Forms/TestimonioSlider';
 import ContadorReciclajes from './Forms/ContadorReciclaje';
 
@@ -13,9 +13,6 @@ export default function Presentacion({navigation}){
      <View style={styles.container}>
           <Text style={styles.Titulo}>
             Bienvenidos a Recinova
-          </Text>
-          <Text style={styles.subtitulo}>
-          Un espacio para reciclar, renovar y hacer la diferencia. Juntos, construimos un futuro más verde.
           </Text>
           <Image source={Imagen1} style={styles.Imagen}/>
           <Text style={styles.subtitulo}>
@@ -53,34 +50,36 @@ const styles = StyleSheet.create({
  },
 Imagen:{
     width:'100%',
-    height:200,
+    height:400,
 },
 Titulo:{
     fontSize:40,
     textAlign:'center',
-    fontFamily:'mi-fuente',
     marginTop:40,
     marginBottom:20,
+    color:'#9d5f5f',
 },
 TituloSegundo:{
     fontSize:35,
     textAlign:'center',
-    fontFamily:'mi-fuente',
     marginBottom:40,
+    color:'#9d5f5f',
+    fontFamily:'mi-fuente',
 },
 subtitulo:{
     fontSize:20,
     textAlign:'center',
-    fontFamily:'mi-fuente',
     marginTop:20,
     padding:10,
     marginBottom:20,
+    color:'#9d5f5f',
 },
 testimonios:{
     fontSize:50,
     textAlign:'center',
     fontWeight:300,
-    fontFamily:'mi-fuente',
+    color:'#9d5f5f',
+    
 },
 contenedorTestimonio:{
     height:140,

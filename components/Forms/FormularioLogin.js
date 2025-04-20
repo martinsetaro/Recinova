@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, ScrollView } from 'react-native';
-import bkgPrincipal from '../../assets/img/bkgPrincipal.png';
+import { CheckBox } from 'react-native-elements';
+import bkgPrincipal from '../../assets/img/bkgform.png';
 
 export default function FormularioLogin({ navigation }) {
   const [nombre, setNombre] = useState('');
@@ -8,6 +9,7 @@ export default function FormularioLogin({ navigation }) {
   const [telefono, setTelefono] = useState('');
   const [email, setEmail] = useState('');
   const [confirmEmail, setConfirmEmail] = useState('');
+  const [aceptaCondiciones, setAceptaCondiciones] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = () => {
@@ -15,47 +17,31 @@ export default function FormularioLogin({ navigation }) {
       setError('Los correos electrónicos no coinciden');
       return;
     }
+    if (!aceptaCondiciones) {
+      setError('Debes aceptar los términos para continuar');
+      return;
+    }
     alert('Formulario enviado con éxito');
     setError('');
   };
 
   return (
-    <ImageBackground source={bkgPrincipal}style={styles.background}>
+    <ImageBackground source={bkgPrincipal} style={styles.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.titulo}>Registro de Usuario</Text>
 
-        <TextInput
-          style={styles.input}
-          placeholder="Nombre"
-          onChangeText={setNombre}
-          value={nombre}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Apellido"
-          onChangeText={setApellido}
-          value={apellido}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Teléfono"
-          onChangeText={setTelefono}
-          value={telefono}
-          keyboardType="phone-pad"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Correo Electrónico"
-          onChangeText={setEmail}
-          value={email}
-          keyboardType="email-address"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Confirmar Correo Electrónico"
-          onChangeText={setConfirmEmail}
-          value={confirmEmail}
-          keyboardType="email-address"
+        <TextInput style={styles.input} placeholder="Nombre" onChangeText={setNombre} value={nombre} />
+        <TextInput style={styles.input} placeholder="Apellido" onChangeText={setApellido} value={apellido} />
+        <TextInput style={styles.input} placeholder="Teléfono" onChangeText={setTelefono} value={telefono} keyboardType="phone-pad" />
+        <TextInput style={styles.input} placeholder="Correo Electrónico" onChangeText={setEmail} value={email} keyboardType="email-address" />
+        <TextInput style={styles.input} placeholder="Confirmar Correo Electrónico" onChangeText={setConfirmEmail} value={confirmEmail} keyboardType="email-address" />
+
+        <CheckBox
+          title="Acepto otorgar mis datos personales"
+          checked={aceptaCondiciones}
+          onPress={() => setAceptaCondiciones(!aceptaCondiciones)}
+          containerStyle={styles.checkboxContainer}
+          textStyle={styles.checkboxText}
         />
 
         {error ? <Text style={styles.error}>{error}</Text> : null}
@@ -68,9 +54,10 @@ export default function FormularioLogin({ navigation }) {
           <Text style={styles.buttonText}>Volver al Inicio</Text>
         </TouchableOpacity>
       </ScrollView>
-      </ImageBackground>
+    </ImageBackground>
   );
 }
+
 
 const styles = StyleSheet.create({
     background: {
@@ -85,10 +72,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titulo: {
-    fontSize: 24,
+    fontSize: 35,
     marginBottom: 30,
-    marginTop:150,
-    fontFamily:'mi-fuente',
+    marginTop:130,
+    color:'#9d5f5f',
   },
   input: {
     width: '100%',
@@ -119,6 +106,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize:20,
   },
   error: {
     color: 'red',
