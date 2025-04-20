@@ -1,11 +1,11 @@
 import { View ,Text , StyleSheet , Image , ScrollView , TouchableOpacity , SafeAreaView} from 'react-native';
 import { StatusBar, Platform } from 'react-native';
-import Imagen1 from '../assets/img/menbox3.png'
+import Imagen1 from '../assets/img/chicadinero.png'
 
 
 const paddingTop = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 
-export default function Presentacion({navigation}){
+export default function TerceraPresentacion({navigation}){
 
 
    return(
@@ -16,14 +16,14 @@ export default function Presentacion({navigation}){
           <Image source={Imagen1} style={styles.Imagen}/>
        </View>
           <Text style={styles.subtitulo}>
-          En Recinova te damos la oportunidad de compartir objetos que ya no usas con quienes los necesitan.
+          En algunos casos, ciertos artículos pueden tener un valor simbólico, siempre dentro de un criterio razonable, ya que el propósito es fomentar la reutilización y evitar el desperdicio, no convertirlo en una venta.
           </Text>
           
           <TouchableOpacity
           style={styles.btnNavegacion}
-          onPress={()=> navigation.navigate('SegundaPresentacion')}>
+          onPress={()=> navigation.navigate('Inicioregistro')}>
             <Text style={styles.textoBoton}>
-            Siguiente
+            registrate hoy!
             </Text>
           </TouchableOpacity>
      </View>
@@ -66,7 +66,7 @@ TituloSegundo:{
 subtitulo:{
     fontSize:20,
     textAlign:'center',
-    marginTop:10,
+    marginTop:-40,
     padding:10,
     marginBottom:20,
     color:'#9d5f5f',
