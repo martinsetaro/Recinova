@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground ,Image } from 'react-native';
 import bkgPrincipal from '../../assets/img/bkgform.png';
+import logogoogle from '../../assets/img/logogoogle.png';
 
 export default function Inicioregistro({ navigation }) {
   return (
@@ -11,23 +12,30 @@ export default function Inicioregistro({ navigation }) {
         {/* Botón de Login */}
         <TouchableOpacity 
           style={styles.btnLogin} 
-          onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.textoBoton}>Iniciar Sesión</Text>
+          onPress={() => navigation.navigate('LoginEntrada')}>
+          <Text style={styles.textosesion}>Iniciar Sesión</Text>
         </TouchableOpacity>
 
         {/* Botón de Registro */}
         <TouchableOpacity 
-          style={styles.btnRegistro} 
+          style={styles.registro} 
           onPress={() => navigation.navigate('Formulario')}>
-          <Text style={styles.textoBoton}>Registrarse</Text>
+          <Text style={styles.registrar}>Registrarse</Text>
         </TouchableOpacity>
 
         {/* Botón de Google Sign-In (Aquí puedes usar algún SDK como Firebase para autenticar) */}
-        <TouchableOpacity 
-          style={styles.btnGoogle} 
-          onPress={() => console.log('Iniciar con Google')}>
-          <Text style={styles.textoBoton}>Continuar con Google</Text>
-        </TouchableOpacity>
+        
+
+       <TouchableOpacity style={styles.btnGoogle} onPress={() => console.log('Iniciar con Google')}>
+         <View style={styles.googleContent}>
+           <Image
+             source={logogoogle}
+             style={styles.googleLogo}
+           />
+           <Text style={styles.textoBoton}>Continuar con Google</Text>
+         </View>
+       </TouchableOpacity>
+
       </View>
     </ImageBackground>
   );
@@ -55,30 +63,59 @@ const styles = StyleSheet.create({
   btnLogin: {
     width: '100%',
     padding: 15,
-    backgroundColor: '#007AFF',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 15,
     marginBottom: 10,
+    borderWidth:1,
   },
-  btnRegistro: {
+  registro: {
     width: '100%',
     padding: 15,
-    backgroundColor: '#34C759',
-    alignItems: 'center',
-    borderRadius: 10,
-    marginBottom: 10,
+    borderWidth:1,
+    borderColor:'#9d5f5f',
+    borderRadius:15,
+   
+    
+  },
+  registrar:{
+    fontSize:20,
+    color:'#9d5f5f',
+    textAlign:'center',
   },
   btnGoogle: {
-    width: '100%',
-    padding: 15,
-    backgroundColor: '#DB4437',
+    backgroundColor: '#fff',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#ccc',
     alignItems: 'center',
-    borderRadius: 10,
+    justifyContent: 'center',
+    marginTop: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 3, // para Android
+  },
+  googleContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   textoBoton: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: '#000',
     fontSize: 16,
+    marginLeft: 10,
+    fontWeight: '500',
   },
+  googleLogo: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+  },
+  textosesion:{
+    color:'green',
+    fontSize:20,
+  }
 });
 

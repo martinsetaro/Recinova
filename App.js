@@ -7,6 +7,10 @@ import FormularioLogin from './components/Forms/FormularioLogin';
 import SegundaPresentacion from './components/SegundaPresentacion';
 import TerceraPresentacion from './components/TerceraPresentacion';
 import Inicioregistro from './components/Forms/Inicioderegistro';
+import LoginEntrada from './components/Forms/Login';
+
+
+
 
 
 const Stack = createStackNavigator();
@@ -21,6 +25,7 @@ export default function App() {
         <Stack.Screen name="SegundaPresentacion" component={SegundaPresentacion} options={{ headerShown: false }}  />
         <Stack.Screen name="TerceraPresentacion" component={TerceraPresentacion} options={{ headerShown: false }}  />
         <Stack.Screen name="Inicioregistro" component={Inicioregistro} options={{ headerShown: false }}  />
+        <Stack.Screen name="LoginEntrada" component={LoginEntrada} options={{ headerShown: false }}  />
         
       </Stack.Navigator>
     </NavigationContainer>
